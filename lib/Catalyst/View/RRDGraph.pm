@@ -5,11 +5,13 @@ use warnings;
 
 use base 'Catalyst::View';
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use RRDs;
 use File::Temp qw();
 use MRO::Compat;
+
+use Catalyst::Exception;
 
 sub new {
     my ($class, $c, $arguments) = @_;
@@ -144,6 +146,8 @@ Called internally by Catalyst when the view is used.
 =head1 THANKS
 
 To Ton Voon for sending in patches, tests, and ideas.
+
+Alexander Kabenin
 
 =head1 COPYRIGHT
 

@@ -14,3 +14,6 @@ Revision history for Perl module Catalyst::View::RRDGraph
 0.04 Thu Mar 25 15:20:00 2010
     - use MRO::Compat (patch courtesy Ton Voon)
 	- change to Module::Install so that build pre-reqs can be separated from runtime pre-reqs
+
+0.05 Mon Feb 07 20:46:00 2011
+    - Fix RT #63114. Got away without "use Catalyst::Exception" for some time. Not now.
