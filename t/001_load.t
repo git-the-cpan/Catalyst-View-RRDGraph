@@ -4,10 +4,13 @@
 
 use Test::More tests => 3;
 
-BEGIN { use_ok( 'Catalyst::View::RRDGraph' ); 
-        use_ok( 'Catalyst::Helper::View::RRDGraph');
+SKIP: {
+    eval { require RRDs };
+    skip "RRDs not installed", 3 if $@;
+
+    use_ok( 'Catalyst::View::RRDGraph' ); 
+    use_ok( 'Catalyst::Helper::View::RRDGraph');
+
+    my $object = Catalyst::View::RRDGraph->new ();
+    isa_ok ($object, 'Catalyst::View::RRDGraph');
 }
-
-my $object = Catalyst::View::RRDGraph->new ();
-isa_ok ($object, 'Catalyst::View::RRDGraph');
-

@@ -1,19 +1,28 @@
 Revision history for Perl module Catalyst::View::RRDGraph
 
+0.07      2012-11-19 00:48:53 Europe/Madrid
+    - Skip tests if RRDs not found
+    - Minor cosmetic changes
+
 0.06      2012-10-26 14:53:30 Europe/Madrid
     - Released with Dist::Zilla
     - RRDs not a prerequisite since it will make fail some installers
     - Documentation modified accordingly
+
 0.05 Mon Feb 07 20:46:00 2011
     - Fix RT #63114. Got away without "use Catalyst::Exception" for some time. Not now.
+
 0.04 Thu Mar 25 15:20:00 2010
     - use MRO::Compat (patch courtesy Ton Voon)
     - change to Module::Install so that build pre-reqs can be separated from runtime pre-reqs
+
 0.03 Sun Oct 26 21:35:00 2008
     - use base instead of use parent in test suite
+
 0.02 Sun Oct 19 14:10:10 2008
     - Throw Catalyst Exceptions instead of die
     - RRDs returns a 0 byte image file and doesn't set RRDs::error. Detect and throw Exception
     - new ON_ERROR_SERVE attribute
+
 0.01 Sun Aug  3 14:23:16 2008
     - original version; created by ExtUtils::ModuleMaker 0.51

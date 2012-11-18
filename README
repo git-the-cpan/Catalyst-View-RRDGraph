@@ -9,7 +9,7 @@ SYNOPSIS
 
       sub routine :Local {
         my ($self, $c) = @_;
-    
+
         $c->stash->{'graph'} = [
                 "--lower-limit", "0",
                 "--start", "end-1d",

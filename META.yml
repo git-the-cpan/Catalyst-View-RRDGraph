@@ -21,5 +21,6 @@ requires:
   MRO::Compat: 0
 resources:
   bugtracker: https://github.com/miquelruiz/Catalyst-View-RRDGraph/issues
+  homepage: http://metacpan.org/release/Catalyst-View-RRDGraph/
   repository: git://github.com/miquelruiz/Catalyst-View-RRDGraph.git
-version: 0.06
+version: 0.07
