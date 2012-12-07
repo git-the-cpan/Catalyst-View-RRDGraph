@@ -15,7 +15,6 @@ use Catalyst::Runtime '5.70';
 
 use base qw/Catalyst/;
 use Catalyst qw/-Debug
-                ConfigLoader
                 Static::Simple/;
 our $VERSION = '0.01';
 
