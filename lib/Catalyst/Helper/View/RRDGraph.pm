@@ -1,6 +1,6 @@
 package Catalyst::Helper::View::RRDGraph;
 {
-  $Catalyst::Helper::View::RRDGraph::VERSION = '0.08';
+  $Catalyst::Helper::View::RRDGraph::VERSION = '0.09';
 }
 
 use strict;

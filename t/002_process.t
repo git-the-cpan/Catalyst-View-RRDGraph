@@ -7,6 +7,7 @@ use lib "$Bin/lib";	# Need for dummy RRDs libs
 use RRDs;
 use Test::More tests => 9;
 use Test::MockObject;
+use File::Spec;
 
 SKIP: {
     eval { require RRDs; };
@@ -44,7 +45,10 @@ SKIP: {
 
     RRDs->simulate_graph_generation(1);
     $object->process($c);
-    like( $served_filename, qr(/tmp/cat_view_rrd_.*\.png), "Got served file" );
+    my $path_regex = File::Spec->catfile(
+        File::Spec->rootdir, 'tmp', 'cat_view_rrd_.*\.png'
+    );
+    like( $served_filename, qr($path_regex), "Got served file" );
     my $graph_input = RRDs->graph_input;
     shift @$graph_input; 		# This is the temporary filename, so ignore for now
     is_deeply( $graph_input, [
