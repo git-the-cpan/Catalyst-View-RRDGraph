@@ -1,5 +1,9 @@
 Revision history for Perl module Catalyst::View::RRDGraph
 
+0.10      2014-02-12 22:11:14+01:00 Europe/Madrid
+    - Pod tests moved to xt/
+    - Fixed test failing in Windows due to a malformed regex
+
 0.09      2014-02-11 23:23:16+01:00 Europe/Madrid
     - Use File::Spec to build paths in tests
 

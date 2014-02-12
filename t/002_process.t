@@ -16,10 +16,6 @@ SKIP: {
     use_ok( 'Catalyst::View::RRDGraph' );
     use_ok( 'Catalyst::Helper::View::RRDGraph');
 
-
-    my $object = Catalyst::View::RRDGraph->new ();
-    isa_ok ($object, 'Catalyst::View::RRDGraph');
-
     my $log = Test::MockObject->new();
     my $c = Test::MockObject->new();
     my $stash = {};
@@ -29,6 +25,9 @@ SKIP: {
     $c->mock( "serve_static_file", sub { shift; $served_filename = shift } );
     $c->mock( "log", sub { $log } );
     $c->mock( "error", sub { shift; $log_error = shift } );
+
+    my $object = Catalyst::View::RRDGraph->new($c);
+    isa_ok ($object, 'Catalyst::View::RRDGraph');
 
     eval { $object->process( $c ) };
     like( $@, "/No graph in the stash/", "No graph in stash" );
@@ -45,9 +44,9 @@ SKIP: {
 
     RRDs->simulate_graph_generation(1);
     $object->process($c);
-    my $path_regex = File::Spec->catfile(
-        File::Spec->rootdir, 'tmp', 'cat_view_rrd_.*\.png'
-    );
+    my $path_regex = quotemeta(File::Spec->catfile(
+        File::Spec->rootdir, 'tmp', 'cat_view_rrd_'
+    )) . '.*\.png';
     like( $served_filename, qr($path_regex), "Got served file" );
     my $graph_input = RRDs->graph_input;
     shift @$graph_input; 		# This is the temporary filename, so ignore for now

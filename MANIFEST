@@ -18,5 +18,5 @@ t/lib/RRDGraphTest003/View/RRDNormal.pm
 t/lib/RRDGraphTest003/View/RRDOnServe.pm
 t/lib/RRDGraphTest003/View/RRDOnServeFunction.pm
 t/lib/RRDs.pm
-t/pod.t
-t/podcoverage.t
+xt/pod.t
+xt/podcoverage.t
